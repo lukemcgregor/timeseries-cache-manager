@@ -1,0 +1,35 @@
+{
+  "name": "timeseries-cache-manager",
+  "description": "Manages the local cache of timeseries data so that you know what parts you need to fetch to populate a particular period.",
+  "version": "0.1.0",
+  "homepage": "https://github.com/lukemcgregor/timeseries-cache-manager",
+  "author": "Luke McGregor (https://github.com/lukemcgregor)",
+  "contributors": [
+    "Luke McGregor"
+  ],
+  "repository": "lukemcgregor/timeseries-cache-manager",
+  "bugs": {
+    "url": "https://github.com/lukemcgregor/timeseries-cache-manager/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "timeseries",
+    "cache",
+    "timeline"
+  ],
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest .",
+    "lint": "eslint ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "7.2.0",
+    "eslint-config-airbnb-base": "14.2.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-jest": "^22.4.1",
+    "jest": "^26.6.0",
+    "moment": "^2.29.1",
+    "rewire": "^5.0.0"
+  }
+}
