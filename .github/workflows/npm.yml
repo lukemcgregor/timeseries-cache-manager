@@ -22,6 +22,8 @@ jobs:
     - name: Build
       if: steps.cache-modules.outputs.cache-hit != 'true'
       run: yarn
+    - name: Lint
+      run: yarn lint
     - name: Test
       run: yarn test
   publish:
