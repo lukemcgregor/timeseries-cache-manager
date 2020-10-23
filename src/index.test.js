@@ -2,7 +2,6 @@ const moment = require('moment');
 
 const { getMissingSegments, recordSegment, sortSegmentsDescending } = require('./index');
 
-
 describe('time-series-cach-manager', () => {
   describe('getMissingSegments', () => {
     describe('simple cache, one segment', () => {
@@ -538,7 +537,7 @@ describe('time-series-cach-manager', () => {
         ]);
       });
     });
-    describe('Forever segments',()=>{
+    describe('Forever segments', () => {
       const existingSegmentA = { from: moment('2020-01-01'), to: moment('2020-01-10') };
       const existingSegmentB = { from: moment('2020-02-01'), to: moment('2020-02-10') };
       const cacheMap = {
@@ -604,14 +603,14 @@ describe('time-series-cach-manager', () => {
         const nextCacheMap = recordSegment({
           cacheMap,
           newSegment: {
-            to: moment('2020-01-05')
+            to: moment('2020-01-05'),
           },
         });
 
         expect(nextCacheMap.segments).toEqual([
           existingSegmentB,
           {
-            to: moment('2020-01-10')
+            to: moment('2020-01-10'),
           },
         ]);
       });
@@ -619,42 +618,42 @@ describe('time-series-cach-manager', () => {
         const nextCacheMap = recordSegment({
           cacheMap,
           newSegment: {
-            from: moment('2020-02-05')
+            from: moment('2020-02-05'),
           },
         });
 
         expect(nextCacheMap.segments).toEqual([
           {
-            from: moment('2020-02-01')
+            from: moment('2020-02-01'),
           },
           existingSegmentA,
         ]);
       });
     });
-    describe('Throwing exceptions',()=> {
+    describe('Throwing exceptions', () => {
       test('Throws when a new segment is not provided', () => {
-        expect(()=> recordSegment({})).toThrow('A newSegment is required');
+        expect(() => recordSegment({})).toThrow('A newSegment is required');
       });
       test('Throws when a new segment is not provided', () => {
-        expect(()=> recordSegment({
-          newSegment:{
+        expect(() => recordSegment({
+          newSegment: {
             from: moment('2020-01-02'),
             to: moment('2020-01-01'),
-          }
+          },
         })).toThrow('invalid segment, cant end before it starts');
       });
     });
-    describe('Sorting',()=> {
+    describe('Sorting', () => {
       test('Throws when a new segment is not provided', () => {
         const nextSegments = sortSegmentsDescending(
           [
             {},
-            {from: moment('2020-01-01')},
-          ]
+            { from: moment('2020-01-01') },
+          ],
         );
 
         expect(nextSegments).toEqual([
-          {from: moment('2020-01-01')},
+          { from: moment('2020-01-01') },
           {},
         ]);
       });
