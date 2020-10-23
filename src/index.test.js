@@ -66,7 +66,7 @@ describe('time-series-cach-manager', () => {
         const res = getMissingSegments({
           cacheMap,
           requestedPeriod: {
-            from: moment('2020-01-01:12:00:00'),
+            from: moment('2020-01-01T12:00:00.000'),
             to: moment('2020-01-03'),
           },
         });

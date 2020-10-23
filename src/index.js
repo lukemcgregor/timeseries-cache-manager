@@ -1,6 +1,6 @@
 /**
  * This exists to help manage caches which have non-continuous sections of
- * historic data. (eg legs and reports for now and a historic date).
+ * historic data.
  */
 
 const sortSegmentsDescending = (segments) => segments.slice().sort((a, b) => {
@@ -21,8 +21,8 @@ const getRelevantSegments = (cacheMap, { from, to }) => sortSegmentsDescending(
 /**
  * This helps reduced data transfer by detecting and returning only the
  * time periods which havent been cached yet to fetch from the server.
- * This means that you can request a subset of reports rather than all the
- * reports for a requested day.
+ * This means that you can request a subset of records rather than all the
+ * records for a requested day.
  * @param {*} cacheMap the existing cachemap to use
  * @param {*} requestedPeriod the time period which you want data for
  * @returns a list of segments which you will need to fetch data for.

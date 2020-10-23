@@ -16,7 +16,7 @@
     "timeseries",
     "cache",
     "timeline"
-  ],
+  ], 
   "main": "src/index.js",
   "scripts": {
     "test": "jest .",
